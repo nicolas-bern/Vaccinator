@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vaccinator.Models;
 
 namespace Vaccinator.Migrations
 {
     [DbContext(typeof(ContexteBDD))]
-    partial class ContexteBDDModelSnapshot : ModelSnapshot
+    [Migration("20210408121538_AddInjection")]
+    partial class AddInjection
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,9 +25,6 @@ namespace Vaccinator.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DateAdministration")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DateRappel")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Lot")
