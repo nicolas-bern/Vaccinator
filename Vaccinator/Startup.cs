@@ -52,7 +52,7 @@ namespace Vaccinator
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=RetardRappel}/{action=Index}/{id?}");
             });
         }
     }

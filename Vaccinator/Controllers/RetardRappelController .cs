@@ -18,11 +18,9 @@ namespace Vaccinator.Controllers
             _context = context;
         }
 
-        // GET: PersonnesNonVaccinees
-        public async Task<IActionResult> Index(String VaccinSelect)
+        // GET: RetardRappel
+        public async Task<IActionResult> Index()
         {
-            ViewBag.ListVaccins = _context.Vaccin.Select(v => new SelectListItem { Text = v.Type, Value = v.Type }).ToList();
-
             IQueryable<Personne> listPersonnes;
 
             listPersonnes = from p in _context.Personnes
@@ -34,7 +32,5 @@ namespace Vaccinator.Controllers
 
             return View(await listPersonnes.ToListAsync());
         }
-
-
     }
 }
