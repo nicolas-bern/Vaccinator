@@ -39,29 +39,30 @@
             @Html.DisplayFor(model => model.IsResident)
         </dd>
     </dl>
-    <p>Liste des injections :</p>
+
     @if (Model.Injections != null)
     {
-<table class="table cell">
-    <thead>
-        <tr>
-            <th>
-                Marque
-            </th>
-            <th>
-                Type
-            </th>
-            <th>
-                Date d'administration
-            </th>
-            <th>
-                Date de rappel
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Injections)
-        {
+<p>Liste des injections :</p>
+                <table class="table cell">
+                    <thead>
+                        <tr>
+                            <th>
+                                Marque
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Date d'administration
+                            </th>
+                            <th>
+                                Date de rappel
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Injections)
+                        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Vaccin.Marque)
@@ -75,10 +76,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DateRappel)
             </td>
-        </tr>
-        }
-    </tbody>
-</table>}
+        </tr>}
+                    </tbody>
+                </table>}
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
