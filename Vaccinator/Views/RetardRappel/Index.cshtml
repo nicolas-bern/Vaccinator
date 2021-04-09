@@ -1,0 +1,53 @@
+@model IEnumerable<Vaccinator.Models.Personne>
+
+<h1>Personnes en retard d'un appel</h1>
+
+@*<form asp-controller="PersonnesNonVaccinees">
+    <select name="VaccinSelect" class="form-control" asp-items="ViewBag.ListVaccins"></select>
+    <input type="submit" value="Sélectionner"/>
+</form>*@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsResident)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsResident)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
