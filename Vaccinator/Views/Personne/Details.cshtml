@@ -39,14 +39,12 @@
             @Html.DisplayFor(model => model.IsResident)
         </dd>
     </dl>
+    <p>Liste des injections :</p>
     @if (Model.Injections != null)
     {
 <table class="table cell">
     <thead>
         <tr>
-            <th>
-                Id
-            </th>
             <th>
                 Marque
             </th>
@@ -54,27 +52,30 @@
                 Type
             </th>
             <th>
-                Date de l'administration
+                Date d'administration
+            </th>
+            <th>
+                Date de rappel
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Injections)
         {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Id)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Vaccin.Marque)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Vaccin.Type)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateAdministration)
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaccin.Marque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaccin.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdministration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRappel)
+            </td>
+        </tr>
         }
     </tbody>
 </table>}
