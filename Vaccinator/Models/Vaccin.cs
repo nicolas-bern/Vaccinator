@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Vaccinator.Models
 {
@@ -16,6 +18,9 @@ namespace Vaccinator.Models
         [MaxLength(50)]
         [Display(Name = "Laboratoire")]
         public string Marque { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public virtual ICollection<Injection> Injections { get; set; }
 
         public Vaccin()
         {

@@ -20,11 +20,13 @@ namespace Vaccinator.Models
         [Required(ErrorMessage = "Ce champ est obligatoire")]
         [Display(Name = "Date d'administration du vaccin")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime DateAdministration { get; set; }
 
         [Required(ErrorMessage = "Ce champ est obligatoire")]
         [Display(Name = "Date de rappel du vaccin")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime DateRappel { get; set; }
 
         public Injection()
