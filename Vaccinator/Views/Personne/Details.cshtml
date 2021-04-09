@@ -1,15 +1,13 @@
 @model Vaccinator.Models.Personne
 
-@{
-    ViewData["Title"] = "Details";
-}
+@{ ViewData["Title"] = "Details"; }
 
 <h1>Details</h1>
 
-<div>
+<div class="cells2 row">
     <h4>Personne</h4>
     <hr />
-    <dl class="row">
+    <dl class="row cell">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nom)
         </dt>
@@ -40,14 +38,46 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IsResident)
         </dd>
-            @foreach (var item in Model.Injections)
-            {
-                if (item.Vaccin != null && item.Personne.Id == Model.Id)
-                {
-                    @Html.DisplayFor(model => item.Vaccin.Type)
-                }
-            }
     </dl>
+    @if (Model.Injections != null)
+    {
+<table class="table cell">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Marque
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Date de l'administration
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Injections)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Vaccin.Marque)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Vaccin.Type)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateAdministration)
+    </td>
+</tr>
+        }
+    </tbody>
+</table>}
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
